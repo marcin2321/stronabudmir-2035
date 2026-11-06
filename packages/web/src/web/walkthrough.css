@@ -1,0 +1,334 @@
+.cinematic-track {
+  --header-height: 96px;
+  height: 420svh;
+  position: relative;
+}
+.cinematic-track .hero {
+  position: sticky;
+  top: var(--header-height);
+  height: calc(100svh - var(--header-height));
+  min-height: 0;
+  max-height: none;
+}
+.walkthrough-scene {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.walkthrough-camera {
+  position: absolute;
+  inset: -3%;
+  transform-origin: 55% 48%;
+  will-change: transform;
+}
+.walkthrough-camera img {
+  object-position: 50% 50%;
+}
+.walkthrough-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(0deg, rgba(12, 19, 12, 0.85), rgba(12, 19, 12, 0.08) 72%),
+    linear-gradient(90deg, rgba(12, 19, 12, 0.28), transparent 70%);
+}
+.walkthrough-shade.intro-shade {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(20, 23, 20, 0.96),
+      rgba(20, 23, 20, 0.77) 32%,
+      rgba(20, 23, 20, 0.18) 80%
+    ),
+    linear-gradient(0deg, rgba(20, 23, 20, 0.65), transparent 28%);
+}
+.walkthrough-intro {
+  transform-origin: left center;
+  padding-top: clamp(75px, 12svh, 160px);
+}
+.walkthrough-intro[inert] {
+  pointer-events: none;
+}
+.walkthrough-copy {
+  position: absolute;
+  left: 5.6%;
+  right: 20%;
+  bottom: 190px;
+  max-width: 750px;
+  color: white;
+}
+.walkthrough-copy .eyebrow {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  color: var(--yellow);
+  margin-bottom: 25px;
+}
+.walkthrough-copy h2 {
+  font-size: clamp(64px, 7vw, 105px);
+  font-weight: 500;
+  margin-bottom: 22px;
+}
+.walkthrough-copy > p:last-child {
+  max-width: 370px;
+  font-size: 13px;
+  line-height: 1.9;
+  color: #e2e4dd;
+}
+.walkthrough-topline {
+  position: absolute;
+  z-index: 4;
+  top: 24px;
+  left: 5.6%;
+  right: 5.6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #f7f8f2bc;
+  font-size: 8px;
+  letter-spacing: 1.4px;
+}
+.walkthrough-topline a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.2px;
+  font-size: 10px;
+  color: white;
+  padding: 5px 0;
+}
+.walkthrough-topline a:hover {
+  color: var(--yellow);
+}
+.chapter-navigation {
+  position: absolute;
+  z-index: 5;
+  left: 5.6%;
+  right: 5.6%;
+  bottom: 95px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+}
+.chapter-navigation button {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  text-align: left;
+  align-items: center;
+  border: 0;
+  background: transparent;
+  color: #e1e5d9a0;
+  padding: 8px 0;
+  gap: 12px 5px;
+}
+.chapter-navigation button:hover,
+.chapter-navigation button.active {
+  color: white;
+}
+.chapter-number {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+}
+.chapter-navigation button.active .chapter-number {
+  color: var(--yellow);
+}
+.chapter-name {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+.chapter-line {
+  grid-column: 1/-1;
+  height: 1px;
+  background: #ffffff40;
+  width: 100%;
+  display: block;
+  overflow: hidden;
+}
+.chapter-line > span {
+  display: block;
+  background: var(--yellow);
+  height: 100%;
+  width: 100%;
+  transform-origin: left center;
+}
+.walkthrough-bottom {
+  z-index: 5;
+}
+.walkthrough-bottom .scroll-link {
+  border: 0;
+  background: transparent;
+  color: white;
+  padding: 0;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+}
+.walkthrough-progress {
+  position: absolute;
+  z-index: 5;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--yellow);
+  transform-origin: left;
+}
+.static-presentation {
+  height: auto;
+}
+.static-presentation .hero {
+  position: relative;
+  top: 0;
+  height: min(760px, calc(100svh - var(--header-height)));
+  min-height: 570px;
+}
+@media (max-height: 750px) and (min-width: 801px) {
+  .walkthrough-intro {
+    padding-top: 65px;
+  }
+  .walkthrough-intro h1 {
+    font-size: clamp(60px, 6.6vw, 94px);
+  }
+  .walkthrough-intro .hero-description {
+    margin: 18px 0;
+  }
+  .walkthrough-intro .button {
+    padding: 14px 22px;
+    min-height: 50px;
+  }
+}
+@media (max-width: 800px) {
+  .cinematic-track {
+    --header-height: 80px;
+    height: 340svh;
+  }
+  .walkthrough-intro {
+    padding-top: 85px;
+  }
+  .walkthrough-copy {
+    left: 5%;
+    bottom: 175px;
+    right: 5%;
+  }
+  .walkthrough-copy h2 {
+    font-size: clamp(56px, 9vw, 82px);
+  }
+  .chapter-navigation {
+    left: 5%;
+    right: 5%;
+    gap: 17px;
+    bottom: 90px;
+  }
+  .walkthrough-topline {
+    left: 5%;
+    right: 5%;
+    top: 21px;
+  }
+  .static-presentation {
+    height: auto;
+  }
+}
+@media (max-width: 560px) {
+  .cinematic-track .hero {
+    height: calc(100svh - 80px);
+  }
+  .walkthrough-intro {
+    padding-top: 70px;
+  }
+  .walkthrough-intro h1 {
+    font-size: clamp(43px, 11.8vw, 65px);
+  }
+  .walkthrough-intro .hero-eyebrow {
+    margin-bottom: 22px;
+  }
+  .walkthrough-intro .hero-description {
+    font-size: 12px;
+    max-width: 310px;
+  }
+  .walkthrough-camera img {
+    object-position: 55% 50%;
+  }
+  .walkthrough-copy {
+    bottom: 165px;
+  }
+  .walkthrough-copy h2 {
+    font-size: clamp(49px, 13vw, 67px);
+  }
+  .walkthrough-copy .eyebrow {
+    margin-bottom: 20px;
+  }
+  .walkthrough-copy > p:last-child {
+    font-size: 12px;
+    max-width: 300px;
+    line-height: 1.8;
+  }
+  .chapter-navigation {
+    bottom: 87px;
+    gap: 12px;
+  }
+  .chapter-navigation button {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .chapter-name {
+    font-size: 9px;
+    min-height: 13px;
+    white-space: nowrap;
+  }
+  .chapter-number {
+    font-size: 8px;
+  }
+  .chapter-line {
+    margin-top: 5px;
+  }
+  .walkthrough-topline {
+    font-size: 7px;
+    letter-spacing: 0.8px;
+  }
+  .walkthrough-topline a {
+    font-size: 8px;
+    gap: 5px;
+  }
+  .walkthrough-bottom .scroll-link {
+    font-size: 7px;
+    letter-spacing: 1px;
+    gap: 10px;
+  }
+  .static-presentation .hero {
+    height: 640px;
+    min-height: 0;
+  }
+}
+@media (max-height: 700px) and (max-width: 800px) {
+  .walkthrough-intro {
+    padding-top: 58px;
+  }
+  .walkthrough-intro h1 {
+    font-size: clamp(38px, 10.5vw, 58px);
+  }
+  .walkthrough-intro .hero-eyebrow {
+    margin-bottom: 16px;
+  }
+  .walkthrough-intro .hero-description {
+    margin: 14px 0;
+    font-size: 10px;
+    max-width: 320px;
+  }
+  .walkthrough-intro .button {
+    padding: 13px 18px;
+    min-height: 46px;
+  }
+  .walkthrough-copy {
+    bottom: 150px;
+  }
+  .walkthrough-copy h2 {
+    font-size: 48px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .walkthrough-camera {
+    will-change: auto;
+  }
+}
